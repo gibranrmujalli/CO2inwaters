@@ -1,6 +1,7 @@
 def calculatedpco2(pH,temp,alkalinity,DIC,IS):
     import math
     import numpy as np
+    #output is log10(pCO2 in atm).
     #temp is the water temperature in Kelvin
     #alkalinity in mol/l
     #DIC in mol/l
