@@ -1,6 +1,5 @@
 def calculatedpco2(pH,temp,alkalinity,DIC,IS):
-    import math
-    import numpy as np
+    from numpy import log10
     #output is log10(pCO2 in atm).
     #temp is the water temperature in Kelvin
     #alkalinity in mol/l
@@ -41,10 +40,10 @@ def calculatedpco2(pH,temp,alkalinity,DIC,IS):
     #alphaz0=1
     #CO2 From alkalintiy
     pCO2a=(alkalinity-H+(Kw/(H*alphaz1*alphaz1)))/(((Ka1*Kpco2)/(H*alphaz1*alphaz1))+((2.0*Ka2*Ka1*Kpco2)/((H**2.0)*(alphaz1**2.0)*alphaz2)))
-    pCO2a=np.log10(pCO2a)
+    pCO2a=log10(pCO2a)
     #CO2 from DIC
     pCO2c=DIC/(((Kpco2)/(alphaz0))+((Ka1*Kpco2)/(H*alphaz1*alphaz1))+((Ka2*Ka1*Kpco2)/((H**2.0)*(alphaz1**2.0)*alphaz2)))
-    pCO2c=np.log10(pCO2c)
+    pCO2c=log10(pCO2c)
     return pCO2a,pCO2c # pCO2a (calculated from alkalinity); pCO2c (calculated from DIC)
 
 
